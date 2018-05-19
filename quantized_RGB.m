@@ -2,7 +2,7 @@ function [outputImg, meanColors] = quantized_RGB(origImg, k)
     inputImg = im2double(origImg);
     [r, c, ~] = size(inputImg); 
     reshapedImg = reshape(inputImg, r*c, 3);
-    [idx, meanColors] = kmeans(reshapedImg, 3);
+    [idx, meanColors] = kmeans(reshapedImg, k);
     outputImg_ = zeros(size(reshapedImg));
     for labels = 1:k
         outputImg_(idx == labels, 1) = meanColors(labels, 1);
