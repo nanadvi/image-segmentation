@@ -1,5 +1,5 @@
 function [histEqual, histCluttered] = get_hue_hists(im, k)
-    subplot(1, 2, 1); 
+    subplot(2, 1, 1); 
     hsvIm = rgb2hsv(im);
     [r, c, ~] = size(im);
     reshapedImg = reshape(hsvIm, r*c, 3); 
@@ -13,7 +13,7 @@ function [histEqual, histCluttered] = get_hue_hists(im, k)
     reshapedHsv = reshape(hsvClustered, r*c, 3);
     hueClustered = reshapedHsv(:,1); 
     bins = sort(meanHues);
-    subplot(1, 2, 2); 
+    subplot(2, 1, 2); 
     h = histogram(hueClustered, bins);
     title(sprintf("Histogram of Quantized Image with %d clusters\n", k));
     histCluttered = h.Values;

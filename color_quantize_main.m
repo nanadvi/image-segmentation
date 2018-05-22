@@ -1,7 +1,10 @@
 function color_quantize_main
     input = imread('fish.jpg');
     % Quantize RGB
+    figure; 
     color_quantize_main_helper(input, 5);
+    figure; 
+    color_quantize_main_helper(input, 25);
 end
 
 function color_quantize_main_helper(im, k)
